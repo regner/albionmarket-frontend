@@ -7,8 +7,8 @@ const state = {
 }
 
 const getters = {
-  items () {
-    return {}
+  itemsList () {
+    return state.itemsList
   },
   itemsObj () {
     return state.itemsObj

@@ -8,9 +8,13 @@
             <router-link class="nav-link" to="/">Home</router-link>
           </li>
           <li class="nav-item">
+            <router-link class="nav-link" to="/items">Items</router-link>
+          </li>
+          <li class="nav-item">
             <router-link class="nav-link" to="/about">About</router-link>
           </li>
         </ul>
+        <!-- <search></search> -->
         <span class="navbar-text">
           <stats></stats>
         </span>
@@ -27,10 +31,12 @@
 <script>
   import { mapGetters } from 'vuex'
   import Stats from './Stats.vue'
+  import Search from './Search.vue'
 
   export default {
     components: {
-      Stats
+      Stats,
+      Search
     },
     computed: {
       loaded () {
