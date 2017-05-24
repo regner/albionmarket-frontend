@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: albionmarket-frontend
+spec:
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+        maxUnavailable: 1
+        maxSurge: 1
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: albionmarket-frontend
+    spec:
+      containers:
+        - name: albionmarket-frontend
+          image: us.gcr.io/personal-projects-1369/albionmarket/frontend:latest
+          imagePullPolicy: Always
+          resources:
+            limits:
+              cpu: 10m
+              memory: 50Mi
+            requests:
+              cpu: 1m
+              memory: 25Mi
+          ports:
+            - containerPort: 80
