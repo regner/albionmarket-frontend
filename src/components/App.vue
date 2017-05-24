@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="container">
+  <div id="app">
     <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
       <router-link class="navbar-brand" to="/">Albion Market</router-link>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -17,7 +17,9 @@
       </div>
     </nav>
     <template>
-      <router-view></router-view>
+      <div class="container-fluid" v-if="loaded">
+        <router-view></router-view>
+      </div>
     </template>
   </div>
 </template>
@@ -29,6 +31,14 @@
   export default {
     components: {
       Stats
+    },
+    computed: {
+      loaded () {
+        return this.$store.getters.itemsLoaded
+      }
+    },
+    created: function () {
+      this.$store.dispatch('loadItems')
     }
   }
 </script>

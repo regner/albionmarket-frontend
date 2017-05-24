@@ -1,6 +1,6 @@
 <template>
   <tr>
-    <td v-if="showItem">{{order.item_id}}</td>
+    <td v-if="showItem">{{name}}</td>
     <td>{{order.price | formatted-number}}</td>
     <td>{{order.amount}}</td>
     <td>{{order.expire_time | formatted-date}}</td>
@@ -12,6 +12,11 @@
   import { mapGetters } from 'vuex'
 
   export default {
+    computed: {
+      name () {
+        return this.$store.getters.itemsObj[this.order.item_id].name
+      }
+    },
     props: [
       'order',
       'showItem'
