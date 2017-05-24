@@ -26,7 +26,12 @@
     }),
     beforeCreate: function () {
       this.$store.dispatch('setOrdersSpecific', this.$route.params.item)
-    }
+    },
+    created: function () {
+      if (!(this.$route.params.item in this.$store.getters.itemsObj)) {
+        this.$router.replace('/404');
+      }
+    },
   }
 </script>
 
