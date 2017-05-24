@@ -28,7 +28,10 @@
     props: [
       'orders',
       'showItem'
-    ]
+    ],
+    beforeDestroy: function () {
+      this.$store.commit('clearOrders')
+    }
   }
 </script>
 

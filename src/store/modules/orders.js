@@ -39,6 +39,10 @@ const mutations = {
   setOrders (state, payload) {
     state.orders = payload.content.orders
     state.stats = payload.content.stats
+  },
+  clearOrders (state, payload) {
+    state.orders = {}
+    state.stats = {}
   }
 }
 
