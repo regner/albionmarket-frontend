@@ -1,6 +1,6 @@
 <template>
   <tr>
-    <td v-if="showItem">{{name}}</td>
+    <td v-if="showItem"><router-link :to="'/orders/' + order.item_id + '/'">{{name}}</router-link></td>
     <td>{{order.price | formatted-number}}</td>
     <td>{{order.amount}}</td>
     <td>{{order.expire_time | formatted-date}}</td>
