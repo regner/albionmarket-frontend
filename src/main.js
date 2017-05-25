@@ -14,6 +14,7 @@ import NotFound from './components/NotFound.vue'
 import Items from './components/Items.vue'
 import About from './components/About.vue'
 import Orders from './components/Orders.vue'
+import Api from './components/Api.vue'
 
 
 axios.defaults.baseURL = process.env.BASE_URL
@@ -30,6 +31,7 @@ const router = new VueRouter({
     {path: '/', component: Home},
     {path: '/about', component: About},
     {path: '/items', component: Items},
+    {path: '/api', component: Api},
     {path: '/orders/:item', component: Orders},
     {path: '/404', component: NotFound},
 
