@@ -11,6 +11,9 @@
             <router-link class="nav-link" to="/items">Items</router-link>
           </li>
           <li class="nav-item">
+            <router-link class="nav-link" to="/api">API</router-link>
+          </li>
+          <li class="nav-item">
             <router-link class="nav-link" to="/about">About</router-link>
           </li>
         </ul>
@@ -30,6 +33,7 @@
 
 <script>
   import { mapGetters } from 'vuex'
+  import utils from '../utils'
   import Stats from './Stats.vue'
   import Search from './Search.vue'
 
@@ -45,6 +49,7 @@
     },
     created: function () {
       this.$store.dispatch('loadItems')
+      utils.clearTitle()
     }
   }
 </script>

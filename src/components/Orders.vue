@@ -15,6 +15,7 @@
 <script>
   import { mapGetters } from 'vuex'
   import OrdersTable from './OrdersTable.vue'
+  import utils from '../utils'
 
   export default {
     components: {
@@ -31,7 +32,12 @@
       if (!(this.$route.params.item in this.$store.getters.itemsObj)) {
         this.$router.replace('/404');
       }
+
+      utils.setTitle(this.$store.getters.itemsObj[this.$route.params.item].name)
     },
+    beforeDestroy: function () {
+      utils.clearTitle()
+    }
   }
 </script>
 
