@@ -1,13 +1,38 @@
 <template>
   <div class="orders">
-    <h3>Orders {{$route.params.item}}</h3>
-    <ul>
-      <li>Total Volume: {{stats.total_volume}}</li>
-      <li>Total Orders: {{stats.order_count}}</li>
-      <li>Average Price: {{stats.price_average}}</li>
-      <li>Minimum Price: {{stats.price_minimum}}</li>
-      <li>Maximum Price: {{stats.price_maximum}}</li>
-    </ul>
+    <div class="media">
+      <div class="pull-left"><img :src="image" class="rounded orderimg" alt="Image of the item."></div>
+      <div class="media-body">
+        <table class="table table-sm table-responsive">
+          <tbody>
+            <tr>
+              <th scope="row">Name</th>
+              <td>{{item.name}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Total Volume</th>
+              <td>{{stats.total_volume}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Total Orders</th>
+              <td>{{stats.order_count}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Average Price</th>
+              <td>{{stats.price_average}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Minimum Price</th>
+              <td>{{stats.price_minimum}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Maximum Price</th>
+              <td>{{stats.price_maximum}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
     <orders-table :orders="orders"></orders-table>
   </div>
 </template>
@@ -24,6 +49,8 @@
     computed: mapGetters({
       orders: 'orders',
       stats: 'orderStats',
+      item: 'orderItem',
+      image: 'orderImage'
     }),
     beforeCreate: function () {
       this.$store.dispatch('setOrdersSpecific', this.$route.params.item)
@@ -42,4 +69,7 @@
 </script>
 
 <style lang="stylus">
+.orderimg
+  width: 200px
+  height: 200px
 </style>

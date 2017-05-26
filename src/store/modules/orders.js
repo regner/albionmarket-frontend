@@ -2,7 +2,8 @@ import marketapi from '../../api/marketapi'
 
 const state = {
   orders: {},
-  stats: {}
+  stats: {},
+  item: {}
 }
 
 const getters = {
@@ -11,19 +12,16 @@ const getters = {
   },
   orderStats () {
     return state.stats
+  },
+  orderItem () {
+    return state.item
+  },
+  orderImage () {
+    return 'https://gameinfo.albiononline.com/api/gameinfo/items/' + state.item.id + '.png'
   }
 }
 
 const actions = {
-  setOrdersRecent ({commit, state}) {
-    marketapi.getRecentOrdersV1()
-    .then(function (response) {
-      commit({
-        type: 'setOrders',
-        content: response.data
-      })
-    })
-  },
   setOrdersSpecific ({commit, state}, payload) {
     marketapi.getOrdersV1(payload)
     .then(function (response) {
@@ -39,10 +37,12 @@ const mutations = {
   setOrders (state, payload) {
     state.orders = payload.content.orders
     state.stats = payload.content.stats
+    state.item = payload.content.item
   },
   clearOrders (state, payload) {
     state.orders = {}
     state.stats = {}
+    state.item = {}
   }
 }
 
