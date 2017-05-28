@@ -11,23 +11,23 @@
             </tr>
             <tr>
               <th scope="row">Total Volume</th>
-              <td>{{stats.total_volume}}</td>
+              <td>{{stats.total_volume | formatted-number}}</td>
             </tr>
             <tr>
               <th scope="row">Total Orders</th>
-              <td>{{stats.order_count}}</td>
+              <td>{{stats.order_count | formatted-number}}</td>
             </tr>
             <tr>
               <th scope="row">Average Price</th>
-              <td>{{stats.price_average}}</td>
+              <td>{{stats.price_average | formatted-number}}</td>
             </tr>
             <tr>
               <th scope="row">Minimum Price</th>
-              <td>{{stats.price_minimum}}</td>
+              <td>{{stats.price_minimum | formatted-number}}</td>
             </tr>
             <tr>
               <th scope="row">Maximum Price</th>
-              <td>{{stats.price_maximum}}</td>
+              <td>{{stats.price_maximum | formatted-number}}</td>
             </tr>
           </tbody>
         </table>

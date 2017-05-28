@@ -1,7 +1,7 @@
 <template>
   <tr>
     <td>{{order.price | formatted-number}}</td>
-    <td>{{order.amount}}</td>
+    <td>{{order.amount | formatted-number}}</td>
     <td>{{order.expire_time | formatted-date}}</td>
     <td>{{order.last_updated | formatted-date}}</td>
   </tr>

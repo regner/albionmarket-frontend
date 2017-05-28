@@ -14,11 +14,11 @@
       <tbody>
         <tr v-for="r in resources">
           <td><router-link :to="'/orders/' + r.item.id + '/'">{{r.item.name}}</router-link></td>
-          <td>{{r.stats.total_volume}}</td>
-          <td>{{r.stats.order_count}}</td>
-          <td>{{r.stats.price_average}}</td>
-          <td>{{r.stats.price_minimum}}</td>
-          <td>{{r.stats.price_maximum}}</td>
+          <td>{{r.stats.total_volume | formatted-number}}</td>
+          <td>{{r.stats.order_count | formatted-number}}</td>
+          <td>{{r.stats.price_average | formatted-number}}</td>
+          <td>{{r.stats.price_minimum | formatted-number}}</td>
+          <td>{{r.stats.price_maximum | formatted-number}}</td>
         </tr>
       </tbody>
     </table>
