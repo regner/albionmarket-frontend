@@ -56,11 +56,6 @@ if (process.env.NODE_ENV === 'development') {
         BASE_URL: '"https://albion-market.com/api/"'
       }
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
     })
