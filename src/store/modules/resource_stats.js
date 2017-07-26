@@ -1,7 +1,7 @@
 import marketapi from '../../api/marketapi'
 
 const state = {
-  resources: []
+  resources: {}
 }
 
 const getters = {

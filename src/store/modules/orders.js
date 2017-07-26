@@ -1,8 +1,25 @@
 import marketapi from '../../api/marketapi'
 
+const default_stats = {
+  buy: {
+    total_volume: 0,
+    order_count: 0,
+    price_average: 0,
+    price_minimum: 0,
+    price_maximum: 0
+  },
+  sell: {
+    total_volume: 0,
+    order_count: 0,
+    price_average: 0,
+    price_minimum: 0,
+    price_maximum: 0
+  }
+}
+
 const state = {
   orders: {},
-  stats: {},
+  stats: default_stats,
   item: {}
 }
 
@@ -41,7 +58,7 @@ const mutations = {
   },
   clearOrders (state, payload) {
     state.orders = {}
-    state.stats = {}
+    state.stats = default_stats
     state.item = {}
   }
 }

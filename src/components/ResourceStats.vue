@@ -4,21 +4,15 @@
       <thead>
         <tr>
           <th>Item</th>
-          <th>Volume</th>
-          <th>Order Count</th>
-          <th>Avg Price</th>
-          <th>Min Price</th>
-          <th>Max Price</th>
+          <th>Buying</th>
+          <th>Selling</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="r in resources">
           <td><router-link :to="'/orders/' + r.item.id + '/'">{{r.item.name}}</router-link></td>
-          <td>{{r.stats.total_volume | formatted-number}}</td>
-          <td>{{r.stats.order_count | formatted-number}}</td>
-          <td>{{r.stats.price_average | formatted-number}}</td>
-          <td>{{r.stats.price_minimum | formatted-number}}</td>
-          <td>{{r.stats.price_maximum | formatted-number}}</td>
+          <td>{{r.stats.buy.price_average | formatted-number}} avg ({{r.stats.buy.total_volume | formatted-number}} units)</td>
+          <td>{{r.stats.sell.price_average | formatted-number}} avg ({{r.stats.sell.total_volume | formatted-number}} units)</td>
         </tr>
       </tbody>
     </table>

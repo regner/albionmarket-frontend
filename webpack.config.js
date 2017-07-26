@@ -41,8 +41,8 @@ if (process.env.NODE_ENV === 'development') {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"development"',
-        // BASE_URL: '"http://localhost:8000"'
-        BASE_URL: '"https://albion-market.com/api/"'
+        BASE_URL: '"http://localhost:8000/api/"'
+        // BASE_URL: '"https://albion-market.com/api/"'
       }
     })
   ])
@@ -56,11 +56,11 @@ if (process.env.NODE_ENV === 'development') {
         BASE_URL: '"https://albion-market.com/api/"'
       }
     }),
-    // new webpack.optimize.UglifyJsPlugin({
-    //   compress: {
-    //     warnings: false
-    //   }
-    // }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
     })
