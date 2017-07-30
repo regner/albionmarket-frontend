@@ -34,7 +34,8 @@ const getters = {
     return state.item
   },
   orderImage () {
-    return 'https://gameinfo.albiononline.com/api/gameinfo/items/' + state.item.id + '.png'
+    //https://gameinfo.albiononline.com/api/gameinfo/items/T6_HEAD_PLATE_HELL.png
+    return 'https://s3-us-west-2.amazonaws.com/ao2d/images/items/' + state.item.id + '.png'
   }
 }
 
