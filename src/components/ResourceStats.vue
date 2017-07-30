@@ -44,7 +44,7 @@
     },
     methods: {
       orderBy(column) {
-        this.$store.dispatch('setOrderColumn', column);
+        this.$store.commit('setOrderByColumn', column);
       }
     }
   }
