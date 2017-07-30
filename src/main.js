@@ -7,6 +7,7 @@ import store from './store'
 
 import FormattedNumber from './filters/FormattedNumber.js'
 import FormattedDate from './filters/FormattedDate.js'
+import NumberFormat from './filters/NumberFormat.js'
 
 import App from './components/App.vue'
 import Home from './components/Home.vue'
@@ -23,6 +24,7 @@ Vue.use(VueRouter)
 
 Vue.filter('formatted-number', FormattedNumber)
 Vue.filter('formatted-date', FormattedDate)
+Vue.filter('number-format', NumberFormat)
 
 const router = new VueRouter({
   mode: 'hash',
