@@ -52,3 +52,8 @@ new Vue({
   store,
   render: h => h(App)
 })
+
+if (process.env.NODE_ENV === 'production') {
+  Raven.config('https://16898ed2dde14c9e800bacf360e9fb01@sentry.io/173107').install();
+}
+
