@@ -2,7 +2,7 @@
   <div>
     <h3>Items</h3>
     <div class="input-group">
-      <input type="text" class="form-control" v-model="filters.searchFilter" @input="updateSearchBox" placeholder="Search for...">
+      <input type="text" class="form-control" v-model="itemsFilters.searchFilter" @input="updateSearchBox" placeholder="Search for...">
     </div><!-- /input-group -->
     <hr>
     <ul>
@@ -23,9 +23,9 @@
       items () {
         return this.$store.getters.itemsList
       },
-      filters()
+      itemsFilters()
       {
-        return this.$store.getters.filters
+        return this.$store.getters.itemsFilters
       }
     },
     methods: {

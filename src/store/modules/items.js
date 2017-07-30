@@ -4,19 +4,19 @@ const state = {
   itemsLoaded: false,
   itemsList: [],
   itemsObj: {},
-  filters: {
+  itemsFilters: {
     searchFilter: ""
   }
 }
 
 const getters = {
   itemsList () {
-    if(state.filters.searchFilter.length < 1)
+    if(state.itemsFilters.searchFilter.length < 1)
     {
       return state.itemsList
     }
     return _.filter(state.itemsList, function(o){
-      return o.name.toLowerCase().includes(state.filters.searchFilter.toLowerCase());
+      return o.name.toLowerCase().includes(state.itemsFilters.searchFilter.toLowerCase());
     })
   },
   itemsObj () {
@@ -25,8 +25,8 @@ const getters = {
   itemsLoaded () {
     return state.itemsLoaded
   },
-  filters() {
-    return state.filters
+  itemsFilters() {
+    return state.itemsFilters
   }
 }
 
@@ -63,7 +63,7 @@ const mutations = {
     state.itemsLoaded = true
   },
   updateSearchBox (state, value) {
-    state.filters.searchFilter = value
+    state.itemsFilters.searchFilter = value
   }
 }
 

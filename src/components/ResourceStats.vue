@@ -3,11 +3,11 @@
     <table class="table table-striped table-sm">
       <thead>
         <tr>
-          <th @click='orderBy("item.name")'>Item <i class="fa " v-if='filters.orderBy == "item.name"' v-bind:class="{ 'fa-chevron-up': filters.dir == 'asc', 'fa-chevron-down': filters.dir == 'desc' }"></i> </th>
-          <th @click='orderBy("stats.buy.price_average")'>Buying <i class="fa " v-if='filters.orderBy == "stats.buy.price_average"' v-bind:class="{ 'fa-chevron-up': filters.dir == 'asc', 'fa-chevron-down': filters.dir == 'desc' }"></i></th>
-          <th @click='orderBy("stats.sell.price_average")'>Selling <i class="fa " v-if='filters.orderBy == "stats.sell.price_average"' v-bind:class="{ 'fa-chevron-up': filters.dir == 'asc', 'fa-chevron-down': filters.dir == 'desc' }"></i></th>
-          <th @click='orderBy("margin")'>Margin <i class="fa " v-if='filters.orderBy == "margin"' v-bind:class="{ 'fa-chevron-up': filters.dir == 'asc', 'fa-chevron-down': filters.dir == 'desc' }"></i></th>
-          <th @click='orderBy("marginpercent")'>% <i class="fa " v-if='filters.orderBy == "marginpercent"' v-bind:class="{ 'fa-chevron-up': filters.dir == 'asc', 'fa-chevron-down': filters.dir == 'desc' }"></i></th>
+          <th @click='orderBy("item.name")'>Item <i class="fa " v-if='resourceFilters.orderBy == "item.name"' v-bind:class="{ 'fa-chevron-up': resourceFilters.dir == 'asc', 'fa-chevron-down': resourceFilters.dir == 'desc' }"></i> </th>
+          <th @click='orderBy("stats.buy.price_average")'>Buying <i class="fa " v-if='resourceFilters.orderBy == "stats.buy.price_average"' v-bind:class="{ 'fa-chevron-up': resourceFilters.dir == 'asc', 'fa-chevron-down': resourceFilters.dir == 'desc' }"></i></th>
+          <th @click='orderBy("stats.sell.price_average")'>Selling <i class="fa " v-if='resourceFilters.orderBy == "stats.sell.price_average"' v-bind:class="{ 'fa-chevron-up': resourceFilters.dir == 'asc', 'fa-chevron-down': resourceFilters.dir == 'desc' }"></i></th>
+          <th @click='orderBy("margin")'>Margin <i class="fa " v-if='resourceFilters.orderBy == "margin"' v-bind:class="{ 'fa-chevron-up': resourceFilters.dir == 'asc', 'fa-chevron-down': resourceFilters.dir == 'desc' }"></i></th>
+          <th @click='orderBy("marginpercent")'>% <i class="fa " v-if='resourceFilters.orderBy == "marginpercent"' v-bind:class="{ 'fa-chevron-up': resourceFilters.dir == 'asc', 'fa-chevron-down': resourceFilters.dir == 'desc' }"></i></th>
         </tr>
       </thead>
       <tbody>
@@ -37,14 +37,14 @@
     },
     computed: mapGetters({
       resources: 'resourceStats',
-      filters: 'filters'
+      resourceFilters: 'resourceFilters'
     }),
     created: function () {
       this.$store.dispatch('updateResourceStats')
     },
     methods: {
       orderBy(column) {
-        this.$store.dispatch('setOrderColumn', column);
+        this.$store.commit('setOrderByColumn', column);
       }
     }
   }
