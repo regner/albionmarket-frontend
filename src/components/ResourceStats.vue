@@ -11,7 +11,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="r in resources"> 
+        <tr v-for="r in resources">
           <td><router-link :to="'/orders/' + r.item.id + '/'">{{r.item.name}}</router-link></td>
           <td>{{r.stats.buy.price_average | formatted-number}} avg ({{r.stats.buy.total_volume | formatted-number}} units)</td>
           <td>{{r.stats.sell.price_average | formatted-number}} avg ({{r.stats.sell.total_volume | formatted-number}} units)</td>
