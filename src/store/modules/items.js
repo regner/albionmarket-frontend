@@ -3,18 +3,30 @@ import marketapi from '../../api/marketapi'
 const state = {
   itemsLoaded: false,
   itemsList: [],
-  itemsObj: {}
+  itemsObj: {},
+  filters: {
+    searchFilter: ""
+  }
 }
 
 const getters = {
   itemsList () {
-    return state.itemsList
+    if(state.filters.searchFilter.length < 1)
+    {
+      return state.itemsList
+    }
+    return _.filter(state.itemsList, function(o){
+      return o.name.toLowerCase().includes(state.filters.searchFilter.toLowerCase());
+    })
   },
   itemsObj () {
     return state.itemsObj
   },
   itemsLoaded () {
     return state.itemsLoaded
+  },
+  filters() {
+    return state.filters
   }
 }
 
@@ -49,6 +61,9 @@ const mutations = {
     }
 
     state.itemsLoaded = true
+  },
+  updateSearchBox (state, value) {
+    state.filters.searchFilter = value
   }
 }
 
