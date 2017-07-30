@@ -30,9 +30,6 @@ const actions = {
         content: response.data
       })
     })
-  },
-  setOrderColumn ({ commit }, value) {
-    commit('setOrderByColumn', value)
   }
 }
 
